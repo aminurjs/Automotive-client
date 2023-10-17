@@ -3,7 +3,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
-const Register = () => {
+const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="bg-[url(https://i.ibb.co/smFhVQh/ning-31-min.jpg)] bg-cover">
@@ -22,28 +22,15 @@ const Register = () => {
           </div>
           <div className=" w-full md:w-1/2 md:pl-10 md:border-l border-gray-300">
             <h1 className="text-2xl text-blue-1 font-semibold text-center mb-2">
-              Register for free!
+              Please login!
             </h1>
             <p className="text-center text-sm text-gray-600 mb-3">
-              Already have an account?{"  "}
-              <Link className="text-yellow-1" to={"/login"}>
-                Go Login!
+              {"Don't"} have an account?{"  "}
+              <Link className="text-yellow-1" to={"/register"}>
+                Go Register!
               </Link>
             </p>
             <form className="mt-8">
-              <input
-                className="px-5 py-2 outline-none border border-gray-200 rounded-md w-full mb-4"
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                required
-              />
-              <input
-                className="px-5 py-2 outline-none border border-gray-200 rounded-md w-full mb-4"
-                type="text"
-                name="image"
-                placeholder="Image URL (Optional)"
-              />
               <input
                 className="px-5 py-2 outline-none border border-gray-200 rounded-md w-full mb-4"
                 type="email"
@@ -68,7 +55,7 @@ const Register = () => {
               </div>
               <div className="w-4/5 lg:w-3/5 mx-auto">
                 <button className="w-full mt-6 mb-10 bg-gradient-to-r bg-blue-1 rounded-lg p-3 text-white uppercase font-medium duration-300">
-                  Sign in with email
+                  Login
                 </button>
               </div>
               <p className="text-center -mb-3.5">
@@ -91,4 +78,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
