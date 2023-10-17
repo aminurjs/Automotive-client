@@ -16,7 +16,7 @@ const Navbar = () => {
           <div className="flex-1 gap-12">
             <Link to={"/"}>
               <img
-                className="w-44"
+                className="w-32 md:w-44"
                 src="https://i.ibb.co/h8kWK7b/Automotive.png"
                 alt=""
               />

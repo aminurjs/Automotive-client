@@ -7,8 +7,8 @@ export default {
         work: ["Work Sans", "sans-serif"],
       },
       colors: {
-        "blue-1": "#2947A9",
-        "yellow-1": "#F9995D",
+        "blue-1": "#0A2357",
+        "yellow-1": "#f5c34b",
       },
     },
   },

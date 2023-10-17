@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-[url(https://i.ibb.co/y64K4HT/slider1.jpg)] bg-cover bg-center">
-      <div className="bg-black bg-opacity-80 pt-20">
+    <footer className="bg-[url(https://demo.vehica.com/wp-content/uploads/2021/02/white-tesla.jpg)] bg-cover bg-center">
+      <div className="bg-black bg-opacity-90 pt-20">
         <div className="max-w-7xl mx-auto">
           <div className="px-5 lg:px-0 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 border-b pb-6 border-gray-800">
             <div className="col-span-2 md:col-span-3 lg:col-span-2">
