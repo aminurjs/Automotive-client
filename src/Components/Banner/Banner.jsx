@@ -9,22 +9,22 @@ const Banner = () => {
           <h1 className="text-4xl md:text-6xl text-white font-bold text-center mb-5">
             Find Your Perfect Car
           </h1>
-          <h2 className="text-sm md:text-lg text-gray-100 font-medium text-center max-w-3xl mx-auto">
+          <p className="text-sm md:text-lg text-gray-100 font-medium text-center max-w-3xl mx-auto">
             Discover the future of driving at our showroom! Explore top models,
             get expert advice, and enjoy special deals. Your dream car awaits.
             Drive in today!
-          </h2>
+          </p>
           <div>
-            <form className="text-center mt-5 flex items-center">
+            <form className="text-center mt-5 flex items-center w-4/5 lg:w-3/5 mx-auto">
               <input
-                className="py-3 px-10 bg-gray-200 placeholder:text-gray-600 w-4/5 md:w-3/5 rounded-l outline-none"
+                className="py-3 px-5 bg-gray-200 placeholder:text-gray-600 w-3/5 md:w-4/5 rounded-l outline-none"
                 type="search"
                 name="search"
                 placeholder="Search....."
                 id=""
               />
               <button
-                className="py-3 px-10 text-blue-1 bg-yellow-1 mr-5 rounded-r"
+                className="py-3 px-8 md:px-10 text-blue-1 bg-yellow-1 mr-5 rounded-r md:w-1/5"
                 type="submit"
               >
                 Search
