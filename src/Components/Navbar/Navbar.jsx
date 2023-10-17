@@ -40,7 +40,7 @@ const Navbar = () => {
             <div className="">
               <Link to={"/cart"} className="text-2xl indicator">
                 <BsCart3></BsCart3>
-                <span className="badge bg-yellow-1 text-white badge-sm indicator-item">
+                <span className="badge bg-yellow-1 text-blue-1 badge-sm indicator-item">
                   8
                 </span>
               </Link>
