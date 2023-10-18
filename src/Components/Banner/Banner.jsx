@@ -7,7 +7,7 @@ const Banner = () => {
             Automotive & Car Dealer
           </h2>
           <h1 className="text-4xl md:text-6xl text-white font-bold text-center mb-5">
-            Find Your Perfect Car
+            Find Your Perfect Automotive
           </h1>
           <p className="text-sm md:text-lg text-gray-100 font-medium text-center max-w-3xl mx-auto">
             Discover the future of driving at our showroom! Explore top models,
