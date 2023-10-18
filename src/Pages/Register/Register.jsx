@@ -1,10 +1,44 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
+import swal from "sweetalert";
 
 const Register = () => {
+  const { createUser, updateUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const [passError, setPassError] = useState("");
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const name = form.get("name");
+    const email = form.get("email");
+    const password = form.get("password");
+    const image = form.get("image");
+    setPassError("");
+
+    if (!/^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/.test(password)) {
+      setPassError(
+        " Password should have at least  6 characters including one uppercase letter, and one special character!"
+      );
+      return;
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        updateUser(name, image);
+        swal("Good job!", "Successfully Registered!", "success");
+        // navigate("/");
+      })
+      .catch((err) => {
+        console.error(err);
+        setPassError(err.message);
+      });
+  };
+
   return (
     <div className="bg-[url(https://i.ibb.co/smFhVQh/ning-31-min.jpg)] bg-cover">
       <div className="max-w-7xl mx-auto p-10">
@@ -30,7 +64,10 @@ const Register = () => {
                 Go Login!
               </Link>
             </p>
-            <form className="mt-8">
+            {passError && (
+              <p className="text-sm text-red-500 text-center">{passError}</p>
+            )}
+            <form onSubmit={handleRegister} className="mt-8">
               <input
                 className="px-5 py-2 outline-none border border-gray-200 rounded-md w-full mb-4"
                 type="text"
