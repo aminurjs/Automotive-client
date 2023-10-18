@@ -2,7 +2,12 @@
   {
     "_id": "001",
     "brand_name": "Toyota",
-    "image": "https://i.ibb.co/Yf6GbnX/Toyota.jpg"
+    "image": "https://i.ibb.co/Yf6GbnX/Toyota.jpg",
+    "slider": [
+      "https://i.ibb.co/t8XhpYN/t.jpg",
+      "https://i.ibb.co/RPPXDZT/t1.png",
+      "https://i.ibb.co/wp6pGvy/t2.png"
+    ]
   },
   {
     "_id": "002",

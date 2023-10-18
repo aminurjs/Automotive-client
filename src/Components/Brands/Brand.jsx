@@ -5,7 +5,7 @@ const Brand = ({ brand }) => {
   const navigate = useNavigate();
 
   const handleBrand = () => {
-    navigate(brand?.brand_name);
+    navigate(`/brand/${brand?.brand_name.toLowerCase()}`);
   };
 
   return (

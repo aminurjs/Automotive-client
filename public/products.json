@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "T001",
+    "image": "https://i.ibb.co/FHfdd7K/Corolla.jpg",
+    "name": "Corolla Cross 2023",
+    "brand_name": "toyota",
+    "type": "Compact SUV",
+    "price": "$23,000",
+    "rating": 4.5,
+    "description": "A compact SUV from Toyota, Corolla Cross 2023 offers a blend of efficiency and versatility, making it a great choice for city dwellers with occasional adventure trips."
+  },
+  {
+    "_id": "T002",
+    "image": "https://i.ibb.co/V2v95FM/sienna.jpg",
+    "name": "Sienna 2023",
+    "brand_name": "toyota",
+    "type": "Minivan",
+    "price": "$35,000",
+    "rating": 4.6,
+    "description": "Toyota's signature minivan, the Sienna 2023, brings forward advanced safety features and a spacious interior, making family trips more comfortable and secure."
+  },
+  {
+    "_id": "T003",
+    "image": "https://i.ibb.co/PFkWNSD/Venza.jpg",
+    "name": "Venza 2023",
+    "brand_name": "toyota",
+    "type": "Midsize SUV",
+    "price": "$32,000",
+    "rating": 4.7,
+    "description": "Venza 2023 is Toyota's answer to the luxury midsize SUV segment, offering a refined design paired with powerful performance."
+  },
+  {
+    "_id": "T004",
+    "image": "https://i.ibb.co/YRWrbmr/4Runner.jpg",
+    "name": "4Runner 2023",
+    "brand_name": "toyota",
+    "type": "Full-size SUV",
+    "price": "$37,000",
+    "rating": 4.4,
+    "description": "Built for the adventurers, the 4Runner 2023 boasts rugged capabilities, ensuring you're always ready for any terrain."
+  }
+]
