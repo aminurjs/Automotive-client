@@ -9,27 +9,24 @@ import "swiper/css/autoplay";
 
 const BrandsProducts = () => {
   const [products, setProducts] = useState([]);
-  const [brands, setBrands] = useState([]);
+  const [brand, setBrand] = useState();
   const { name } = useParams();
 
   useEffect(() => {
-    fetch("../products.json")
+    fetch(`http://localhost:5000/products/${name}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
       });
   }, []);
   useEffect(() => {
-    fetch("../brands.json")
+    fetch(`http://localhost:5000/brands/${name}`)
       .then((res) => res.json())
       .then((data) => {
-        setBrands(data);
+        setBrand(data);
+        console.log(data);
       });
   }, []);
-  const findBrand = brands?.find(
-    (brand) => brand.brand_name.toLowerCase() === name
-  );
-  console.log(findBrand);
 
   return (
     <div className="max-w-7xl mx-auto mb-20">
@@ -44,21 +41,21 @@ const BrandsProducts = () => {
           <SwiperSlide>
             <img
               className="w-full md:h-96 lg:h-[600px] h-[300px]"
-              src={findBrand?.slider[0]}
+              src={brand?.slider[0]}
               alt=""
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
               className="w-full md:h-96 lg:h-[600px] h-[300px]"
-              src={findBrand?.slider[1]}
+              src={brand?.slider[1]}
               alt=""
             />
           </SwiperSlide>
           <SwiperSlide>
             <img
               className="w-full md:h-96 lg:h-[600px] h-[300px]"
-              src={findBrand?.slider[2]}
+              src={brand?.slider[2]}
               alt=""
             />
           </SwiperSlide>

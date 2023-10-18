@@ -17,7 +17,7 @@ const Brand = ({ brand }) => {
         <img src={brand?.image} alt="Brand" className="rounded-lg" />
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title">{brand?.brand_name}</h2>
+        <h2 className="card-title">{brand?.brand_name.toUpperCase()}</h2>
       </div>
     </div>
   );

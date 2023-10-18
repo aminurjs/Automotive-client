@@ -1,32 +1,19 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import swal from "sweetalert";
+import { useLoaderData } from "react-router-dom";
 
 const UpdateProduct = () => {
-  const [products, setProducts] = useState([]);
   const [brands, setBrands] = useState([]);
-  const { id } = useParams();
+  const product = useLoaderData();
+
   useEffect(() => {
-    fetch("../products.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-      });
-  }, []);
-  useEffect(() => {
-    fetch("../brands.json")
+    fetch("http://localhost:5000/brands")
       .then((res) => res.json())
       .then((data) => {
         setBrands(data);
       });
   }, []);
 
-  const findProduct = products?.find((product) => product._id === id);
-  if (!findProduct) {
-    return;
-  }
-  console.log(findProduct);
-  const { image, name, type, price, rating, description } = findProduct;
+  const { image, name, type, price, rating, description } = product;
 
   const handleUpdateProduct = (event) => {
     event.preventDefault();
@@ -129,13 +116,15 @@ const UpdateProduct = () => {
                   </div>
                   <div>
                     <select
-                      className="w-full px-4 py-3.5 bg-white outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                      className="w-full px-4 py-3.5 bg-white outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200 uppercase"
                       id="brand_name"
                       name="brand_name"
                       placeholder="Enter Brand Name"
                     >
                       {brands?.map((brand) => (
-                        <option key={brand._id}>{brand.brand_name}</option>
+                        <option className="uppercase" key={brand._id}>
+                          {brand.brand_name}
+                        </option>
                       ))}
                     </select>
                   </div>

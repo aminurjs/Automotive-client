@@ -5,7 +5,7 @@ const AddProduct = () => {
   const [brands, setBrands] = useState([]);
 
   useEffect(() => {
-    fetch("./brands.json")
+    fetch("http://localhost:5000/brands")
       .then((res) => res.json())
       .then((data) => {
         setBrands(data);
@@ -17,7 +17,7 @@ const AddProduct = () => {
     const form = event.target;
     const image = form.image.value;
     const name = form.name.value;
-    const brand_name = form.brand_name.value;
+    const brand_name = form.brand_name.value.toLowerCase();
     const type = form.type.value;
     const price = form.price.value;
     const rating = form.rating.value;
@@ -113,13 +113,15 @@ const AddProduct = () => {
                   </div>
                   <div>
                     <select
-                      className="w-full px-4 py-3.5 bg-white outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                      className="w-full px-4 py-3.5 bg-white outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200 uppercase"
                       id="brand_name"
                       name="brand_name"
                       placeholder="Enter Brand Name"
                     >
                       {brands?.map((brand) => (
-                        <option key={brand._id}>{brand.brand_name}</option>
+                        <option className="uppercase" key={brand._id}>
+                          {brand.brand_name}
+                        </option>
                       ))}
                     </select>
                   </div>
