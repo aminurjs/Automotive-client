@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import Products from "./Products";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
@@ -66,7 +65,7 @@ const BrandsProducts = () => {
         </Swiper>
       </div>
       <h2 className="text-3xl text-blue-1 font-semibold mb-10 text-center">
-        Explore Your Dream Brands
+        Explore Your Dream Cars
       </h2>
       <div className=" grid grid-cols-1 md:grid-cols-2 gap-6">
         {products.map((product) => (

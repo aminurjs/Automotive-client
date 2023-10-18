@@ -1,27 +1,43 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import swal from "sweetalert";
 
-const AddProduct = () => {
+const UpdateProduct = () => {
+  const [products, setProducts] = useState([]);
   const [brands, setBrands] = useState([]);
-
+  const { id } = useParams();
   useEffect(() => {
-    fetch("./brands.json")
+    fetch("../products.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+      });
+  }, []);
+  useEffect(() => {
+    fetch("../brands.json")
       .then((res) => res.json())
       .then((data) => {
         setBrands(data);
       });
   }, []);
 
-  const handleAddProduct = (event) => {
+  const findProduct = products?.find((product) => product._id === id);
+  if (!findProduct) {
+    return;
+  }
+  console.log(findProduct);
+  const { image, name, type, price, rating, description } = findProduct;
+
+  const handleUpdateProduct = (event) => {
     event.preventDefault();
     const form = event.target;
     const image = form.image.value;
     const name = form.name.value;
-    const brand_name = form.brand_name.value;
+    const brand_name = form.brand_name.value.toLowerCase();
     const type = form.type.value;
     const price = form.price.value;
     const rating = form.rating.value;
-    const short_description = form.short_description.value;
+    const description = form.description.value;
     const product = {
       image,
       name,
@@ -29,24 +45,23 @@ const AddProduct = () => {
       type,
       price,
       rating,
-      short_description,
+      description,
     };
     console.log(product);
-    fetch("http://localhost:5000/addproduct", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(product),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          swal("Success!", "Product added", "success");
-          form.reset();
-        }
-      });
+    // fetch("http://localhost:5000/update", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(product),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     if (data.insertedId) {
+    //       swal("Success!", "Product added", "success");
+    //     }
+    //   });
   };
 
   return (
@@ -55,10 +70,9 @@ const AddProduct = () => {
         <div className=" rounded shadow p-10  bg-white">
           <div>
             <h1 className="text-3xl text-blue-1 font-semibold text-center mb-2">
-              Add Product
+              Update Product
             </h1>
-
-            <form onSubmit={handleAddProduct}>
+            <form onSubmit={handleUpdateProduct}>
               <div className="md:flex gap-6 justify-between">
                 <div className="md:w-1/2 mb-6">
                   <div>
@@ -75,6 +89,7 @@ const AddProduct = () => {
                       type="text"
                       id="image"
                       name="image"
+                      defaultValue={image}
                       placeholder="Enter image url"
                       required
                     />
@@ -95,6 +110,7 @@ const AddProduct = () => {
                       type="text"
                       id="name"
                       name="name"
+                      defaultValue={name}
                       placeholder="Enter Product Name"
                       required
                     />
@@ -139,6 +155,7 @@ const AddProduct = () => {
                       type="text"
                       id="type"
                       name="type"
+                      defaultValue={type}
                       placeholder="Product Type"
                       required
                     />
@@ -162,6 +179,7 @@ const AddProduct = () => {
                       id="price"
                       name="price"
                       placeholder="Price"
+                      defaultValue={price}
                       required
                     />
                   </div>
@@ -182,6 +200,7 @@ const AddProduct = () => {
                       id="rating"
                       name="rating"
                       placeholder="1 to 5"
+                      defaultValue={rating}
                       required
                     />
                   </div>
@@ -191,7 +210,7 @@ const AddProduct = () => {
                 <div>
                   <label
                     className="text-lg font-semibold text-[#374151] opacity-80 mb-3 block"
-                    htmlFor="short_description"
+                    htmlFor="description"
                   >
                     Short description:
                   </label>
@@ -199,9 +218,10 @@ const AddProduct = () => {
                 <div>
                   <textarea
                     className="w-full px-4 py-3 bg-white outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
-                    id="short_description"
-                    name="short_description"
+                    id="description"
+                    name="description"
                     placeholder="Short description..."
+                    defaultValue={description}
                     rows="5"
                   ></textarea>
                 </div>
@@ -209,7 +229,7 @@ const AddProduct = () => {
 
               <div className="w-full mx-auto">
                 <button className="w-full mt-6 mb-10 bg-gradient-to-r bg-blue-1 rounded-lg p-3 text-white uppercase font-medium duration-300">
-                  Add Product
+                  Update
                 </button>
               </div>
             </form>
@@ -220,4 +240,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;
