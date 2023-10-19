@@ -1,8 +1,19 @@
 import { Link, NavLink } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
 import "./Navbar.css";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const [carts, setCarts] = useState(0);
+  const { cartRender } = useContext(AuthContext);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/carts")
+      .then((res) => res.json())
+      .then((data) => setCarts(data.length));
+  }, [cartRender]);
+
   const menus = [
     { id: "1", name: "Home", path: "/" },
     { id: "2", name: "Add Product", path: "/addproduct" },
@@ -41,7 +52,7 @@ const Navbar = () => {
               <Link to={"/cart"} className="text-2xl indicator">
                 <BsCart3></BsCart3>
                 <span className="badge bg-yellow-1 text-blue-1 badge-sm indicator-item">
-                  8
+                  {carts}
                 </span>
               </Link>
             </div>

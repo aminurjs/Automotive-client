@@ -9,12 +9,37 @@ import {
 import { IoMdPricetags } from "react-icons/io";
 import { BsFillInfoCircleFill, BsInstagram, BsTwitter } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
+import swal from "sweetalert";
+import { useContext } from "react";
+import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
 
 const ProductDetails = () => {
+  const { cartRender, setCartRender } = useContext(AuthContext);
   const product = useLoaderData();
   console.log(product);
+  const { _id, image, name, type, price, brand_name, rating, description } =
+    product;
 
-  const { image, name, type, price, brand_name, rating, description } = product;
+  const handleAddCart = () => {
+    const cart = { id: _id, image, name, price, type, brand_name };
+    console.log(cart);
+    fetch("http://localhost:5000/addcart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(cart),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          swal("Success!", "Product added to cart", "success");
+          setCartRender(!cartRender);
+        }
+      });
+  };
+
   return (
     <div className=" py-20">
       <div className="max-w-7xl mx-auto flex gap-4 lg:gap-6 p-5 flex-col md:flex-row">
@@ -77,6 +102,12 @@ const ProductDetails = () => {
             </span>{" "}
             Rating : {rating}
           </h3>
+          <h3 className="font-medium mb-2 ">
+            <span>
+              <AiFillRightCircle className="inline text-xl text-blue-1"></AiFillRightCircle>
+            </span>{" "}
+            In Stock
+          </h3>
 
           <div className="flex gap-2 items-center my-4">
             <span className="text-[#3378F8] text-2xl ">
@@ -84,7 +115,10 @@ const ProductDetails = () => {
             </span>
             <p className="text-xl text-blue-1">Price : {price}</p>
           </div>
-          <button className="mb-6 bg-blue-1 rounded-sm active:scale-95 px-10 py-2.5 text-white uppercase font-medium duration-300">
+          <button
+            onClick={handleAddCart}
+            className="mb-6 bg-blue-1 rounded-sm active:scale-95 px-10 py-2.5 text-white uppercase font-medium duration-300"
+          >
             Add To Cart
           </button>
           <h3 className="mb-4 font-semibold text-xl pb-2 border-b border-gray-300 mt-10">
