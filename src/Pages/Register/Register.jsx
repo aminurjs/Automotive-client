@@ -30,9 +30,11 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        updateUser(name, image);
-        swal("Good job!", "Successfully Registered!", "success");
-        navigate("/");
+        updateUser(name, image).then(() => {
+          // Profile updated!
+          swal("Good job!", "Successfully Registered!", "success");
+          navigate("/");
+        });
       })
       .catch((err) => {
         console.error(err);
