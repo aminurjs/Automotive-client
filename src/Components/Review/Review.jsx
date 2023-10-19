@@ -7,8 +7,8 @@ import "swiper/css/autoplay";
 
 const Review = () => {
   return (
-    <div className="max-w-7xl mx-auto my-20 px-5">
-      <h2 className="text-3xl text-blue-1 font-semibold mb-5 text-center">
+    <div className="max-w-7xl mx-auto py-20 px-5">
+      <h2 className="text-3xl text-blue-1 dark:text-slate-200  font-semibold mb-5 text-center">
         Our Customers Says
       </h2>
       <Swiper
@@ -23,7 +23,7 @@ const Review = () => {
             <div className="text-center text-3xl mb-6 text-yellow-1">
               <FaQuoteRight className="inline"></FaQuoteRight>
             </div>
-            <p className="text-lg text-gray-800 text-center max-w-4xl mx-auto mb-10">
+            <p className="text-lg text-gray-800 dark:text-slate-300  text-center max-w-4xl mx-auto mb-10">
               I recently purchased a vehicle from Car Dealer and {"couldn't"} be
               happier with the experience. The sales team was knowledgeable,
               patient, and genuinely cared about finding the right car for my
@@ -31,10 +31,12 @@ const Review = () => {
               trade-in value for my old car. Highly recommend to anyone in the
               market for a new vehicle!
             </p>
-            <h2 className="text-xl text-blue-1 font-semibold mb-1 text-center">
+            <h2 className="text-xl text-blue-1 dark:text-slate-200  font-semibold mb-1 text-center">
               Alex Thompson
             </h2>{" "}
-            <p className="text-gray-800 text-center text-sm">Vehicle Buyer</p>
+            <p className="text-gray-800 dark:text-slate-300 text-center text-sm">
+              Vehicle Buyer
+            </p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -42,7 +44,7 @@ const Review = () => {
             <div className="text-center text-3xl mb-6 text-yellow-1">
               <FaQuoteRight className="inline"></FaQuoteRight>
             </div>
-            <p className="text-lg text-gray-800 text-center max-w-4xl mx-auto mb-10">
+            <p className="text-lg text-gray-800 dark:text-slate-300 text-center max-w-4xl mx-auto mb-10">
               Visiting Car Dealer was a breath of fresh air compared to other
               dealerships {"I've"} been to. The showroom was clean and
               well-organized, and the staff was friendly without being pushy.
@@ -50,10 +52,12 @@ const Review = () => {
               decision. Lost a star because the wait time for paperwork was a
               bit longer than expected, but overall a very positive experience.
             </p>
-            <h2 className="text-xl text-blue-1 font-semibold mb-1 text-center">
+            <h2 className="text-xl text-blue-1 dark:text-slate-200  font-semibold mb-1 text-center">
               Samuel Wallace
             </h2>{" "}
-            <p className="text-gray-800 text-center text-sm">Vehicle Buyer</p>
+            <p className="text-gray-800 dark:text-slate-300 text-center text-sm">
+              Vehicle Buyer
+            </p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -61,7 +65,7 @@ const Review = () => {
             <div className="text-center text-3xl mb-6 text-yellow-1">
               <FaQuoteRight className="inline"></FaQuoteRight>
             </div>
-            <p className="text-lg text-gray-800 text-center max-w-4xl mx-auto mb-10">
+            <p className="text-lg text-gray-800 dark:text-slate-300 text-center max-w-4xl mx-auto mb-10">
               {" Can't"} say enough good things about Car Dealer ! From the
               moment I walked in, I felt valued as a customer. Their extensive
               inventory made it easy to find the perfect car, and their pricing
@@ -69,10 +73,12 @@ const Review = () => {
               exceptional too. {"It's"} evident they pride themselves on
               building long-term relationships with their customers.
             </p>
-            <h2 className="text-xl text-blue-1 font-semibold mb-1 text-center">
+            <h2 className="text-xl text-blue-1 dark:text-slate-200  font-semibold mb-1 text-center">
               Jennifer Martinez
             </h2>{" "}
-            <p className="text-gray-800 text-center text-sm">Vehicle Buyer</p>
+            <p className="text-gray-800 dark:text-slate-300 text-center text-sm">
+              Vehicle Buyer
+            </p>
           </div>
         </SwiperSlide>
       </Swiper>
