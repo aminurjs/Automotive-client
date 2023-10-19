@@ -1,10 +1,46 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
+import swal from "sweetalert";
 
 const Login = () => {
+  const { login, googleLogin } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const [passError, setPassError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const email = form.get("email");
+    const password = form.get("password");
+
+    login(email, password)
+      .then((result) => {
+        console.log(result.user);
+        swal("Good job!", "Successfully Logged in!", "success");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => {
+        console.error(err);
+        setPassError("Invalid Password");
+      });
+  };
+  const handleGoogleLogin = () => {
+    setPassError("");
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+        swal("Good job!", "Successfully Logged in!", "success");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
   return (
     <div className="bg-[url(https://i.ibb.co/smFhVQh/ning-31-min.jpg)] bg-cover">
       <div className="max-w-7xl mx-auto p-10">
@@ -30,7 +66,10 @@ const Login = () => {
                 Go Register!
               </Link>
             </p>
-            <form className="mt-8">
+            {passError && (
+              <p className="text-sm text-red-500 text-center">{passError}</p>
+            )}
+            <form onSubmit={handleLogin} className="mt-8">
               <input
                 className="px-5 py-2 outline-none border border-gray-200 rounded-md w-full mb-4"
                 type="email"
@@ -58,19 +97,20 @@ const Login = () => {
                   Login
                 </button>
               </div>
-              <p className="text-center -mb-3.5">
-                <span className="bg-white z-10 inline-block px-2">
-                  Or login
-                </span>
-              </p>
-              <div className="w-full h-[1px] bg-stone-300"></div>
-              <div className="text-center mt-8 w-4/5 lg:w-3/5 mx-auto">
-                <button className="block w-full p-2 border-2 border-blue-1 font-medium rounded-lg mb-5">
-                  <FcGoogle className="inline text-2xl mr-2"></FcGoogle>
-                  Continue with Google
-                </button>
-              </div>
             </form>
+            <p className="text-center -mb-3.5">
+              <span className="bg-white z-10 inline-block px-2">Or login</span>
+            </p>
+            <div className="w-full h-[1px] bg-stone-300"></div>
+            <div className="text-center mt-8 w-4/5 lg:w-3/5 mx-auto">
+              <button
+                onClick={handleGoogleLogin}
+                className="block w-full p-2 border-2 border-blue-1 font-medium rounded-lg mb-5"
+              >
+                <FcGoogle className="inline text-2xl mr-2"></FcGoogle>
+                Continue with Google
+              </button>
+            </div>
           </div>
         </div>
       </div>

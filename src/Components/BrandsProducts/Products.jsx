@@ -17,7 +17,7 @@ const Products = ({ product }) => {
       </div>
 
       <h3 className="font-medium capitalize mb-4">
-        {description.slice(0, 120)}...
+        {description?.length > 120 ? description.slice(0, 120) : description}...
       </h3>
 
       <div className="flex justify-between">
@@ -25,10 +25,12 @@ const Products = ({ product }) => {
           <button className=" px-8 bg-yellow-1 rounded p-3 text-white uppercase font-medium duration-300">
             Update
           </button>
+        </Link>{" "}
+        <Link to={`/details/${_id}`}>
+          <button className=" px-8 bg-blue-1 rounded p-3 text-white uppercase font-medium duration-300">
+            View Details
+          </button>
         </Link>
-        <button className=" px-8 bg-blue-1 rounded p-3 text-white uppercase font-medium duration-300">
-          View Details
-        </button>
       </div>
     </div>
   );

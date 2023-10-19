@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import swal from "sweetalert";
 
 const UpdateProduct = () => {
   const [brands, setBrands] = useState([]);
@@ -12,43 +13,48 @@ const UpdateProduct = () => {
         setBrands(data);
       });
   }, []);
+  const { _id, image, name, type, price, brand_name, rating, description } =
+    product;
+  const [brandName, setBrandName] = useState(brand_name);
 
-  const { image, name, type, price, rating, description } = product;
+  const handleBrandName = (event) => {
+    const brand = event.target.value;
+    setBrandName(brand);
+  };
 
   const handleUpdateProduct = (event) => {
     event.preventDefault();
     const form = event.target;
     const image = form.image.value;
     const name = form.name.value;
-    const brand_name = form.brand_name.value.toLowerCase();
     const type = form.type.value;
     const price = form.price.value;
     const rating = form.rating.value;
     const description = form.description.value;
-    const product = {
+    const updatedProduct = {
       image,
       name,
-      brand_name,
+      brandName,
       type,
       price,
       rating,
       description,
     };
-    console.log(product);
-    // fetch("http://localhost:5000/update", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(product),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     if (data.insertedId) {
-    //       swal("Success!", "Product added", "success");
-    //     }
-    //   });
+    console.log(updatedProduct);
+    fetch(`http://localhost:5000/update/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          swal("Success!", "Product Updated Successful", "success");
+        }
+      });
   };
 
   return (
@@ -72,7 +78,7 @@ const UpdateProduct = () => {
                   </div>
                   <div>
                     <input
-                      className="w-full px-4 py-3 bg-white outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                      className="w-full px-4 py-3 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
                       type="text"
                       id="image"
                       name="image"
@@ -93,7 +99,7 @@ const UpdateProduct = () => {
                   </div>
                   <div>
                     <input
-                      className="w-full px-4 py-3 bg-white outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                      className="w-full px-4 py-3 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
                       type="text"
                       id="name"
                       name="name"
@@ -116,9 +122,11 @@ const UpdateProduct = () => {
                   </div>
                   <div>
                     <select
-                      className="w-full px-4 py-3.5 bg-white outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200 uppercase"
+                      className="w-full px-4 py-3.5 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200 uppercase"
                       id="brand_name"
                       name="brand_name"
+                      onChange={handleBrandName}
+                      value={brandName}
                       placeholder="Enter Brand Name"
                     >
                       {brands?.map((brand) => (
@@ -140,7 +148,7 @@ const UpdateProduct = () => {
                   </div>
                   <div>
                     <input
-                      className="w-full px-4 py-3 bg-white outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                      className="w-full px-4 py-3 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
                       type="text"
                       id="type"
                       name="type"
@@ -163,7 +171,7 @@ const UpdateProduct = () => {
                   </div>
                   <div>
                     <input
-                      className="w-full px-4 py-3 bg-white outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                      className="w-full px-4 py-3 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
                       type="text"
                       id="price"
                       name="price"
@@ -184,8 +192,8 @@ const UpdateProduct = () => {
                   </div>
                   <div>
                     <input
-                      className="w-full px-4 py-3 bg-white outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
-                      type="number"
+                      className="w-full px-4 py-3 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                      type="text"
                       id="rating"
                       name="rating"
                       placeholder="1 to 5"
@@ -206,7 +214,7 @@ const UpdateProduct = () => {
                 </div>
                 <div>
                   <textarea
-                    className="w-full px-4 py-3 bg-white outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                    className="w-full px-4 py-3 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
                     id="description"
                     name="description"
                     placeholder="Short description..."
