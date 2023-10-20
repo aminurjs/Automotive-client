@@ -30,7 +30,9 @@ const CardElement = ({ cart, carts, setCarts }) => {
     <div className="flex items-center gap-6 mb-5 pb-10 border-b border-gray-200">
       <img className="w-1/3 lg:w-1/2 rounded" src={image} alt="" />
       <div className="w-2/3 lg:w-1/2">
-        <h3 className="font-semibold text-blue-1 text-xl mb-2">{name}</h3>
+        <h3 className="font-semibold text-blue-1 dark:text-gray-200 text-xl mb-2">
+          {name}
+        </h3>
         <h3 className="font-semibold text-2xl mb-2">{price}</h3>
         <h3 className="font-medium text-green-600 text-lg mb-1">In Stock</h3>
         <h3 className="font-medium">

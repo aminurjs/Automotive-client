@@ -17,7 +17,7 @@ const Banner = () => {
           <div>
             <form className="text-center mt-5 flex items-center w-4/5 lg:w-3/5 mx-auto">
               <input
-                className="py-3 px-5 bg-gray-200 dark:text-gray-300  placeholder:text-gray-600 w-3/5 md:w-4/5 rounded-l outline-none"
+                className="py-3 px-5 bg-gray-200 dark:bg-gray-600 dark:border-gray-500 dark:placeholder:text-gray-400 text-neutral-800 dark:text-gray-200 placeholder:text-gray-600 w-3/5 md:w-4/5 rounded-l outline-none"
                 type="search"
                 name="search"
                 placeholder="Search....."

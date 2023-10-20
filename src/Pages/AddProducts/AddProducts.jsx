@@ -50,11 +50,11 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="bg-[url(https://i.ibb.co/smFhVQh/ning-31-min.jpg)] bg-cover">
+    <div className="bg-slate-100 dark:bg-gray-900">
       <div className="max-w-5xl mx-auto p-10">
-        <div className=" rounded shadow p-10  bg-white">
+        <div className=" rounded shadow p-10  bg-white dark:bg-gray-800">
           <div>
-            <h1 className="text-3xl text-blue-1 font-semibold text-center mb-2">
+            <h1 className="text-3xl text-blue-1 dark:text-gray-200 font-semibold text-center mb-2">
               Add Product
             </h1>
 
@@ -63,7 +63,7 @@ const AddProduct = () => {
                 <div className="md:w-1/2 mb-6">
                   <div>
                     <label
-                      className="text-lg font-semibold text-[#374151] opacity-80 mb-3 block"
+                      className="text-lg font-semibold  text-neutral-900 dark:text-gray-200 mb-3 block"
                       htmlFor="image"
                     >
                       Image:
@@ -71,7 +71,7 @@ const AddProduct = () => {
                   </div>
                   <div>
                     <input
-                      className="w-full px-4 py-3 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                      className="w-full px-4 py-3 bg-[#f7f7f7] dark:bg-gray-600 dark:border-gray-500 dark:placeholder:text-gray-400 dark:text-gray-200 outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
                       type="text"
                       id="image"
                       name="image"
@@ -83,7 +83,7 @@ const AddProduct = () => {
                 <div className="md:w-1/2 mb-6">
                   <div>
                     <label
-                      className="text-lg font-semibold text-[#374151] opacity-80 mb-3 block"
+                      className="text-lg font-semibold  text-neutral-900 dark:text-gray-200 mb-3 block"
                       htmlFor="name"
                     >
                       Name:
@@ -91,7 +91,7 @@ const AddProduct = () => {
                   </div>
                   <div>
                     <input
-                      className="w-full px-4 py-3 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                      className="w-full px-4 py-3 bg-[#f7f7f7] dark:bg-gray-600 dark:border-gray-500 dark:placeholder:text-gray-400 dark:text-gray-200 outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
                       type="text"
                       id="name"
                       name="name"
@@ -105,7 +105,7 @@ const AddProduct = () => {
                 <div className="md:w-1/2 mb-6">
                   <div>
                     <label
-                      className="text-lg font-semibold text-[#374151] opacity-80 mb-3 block"
+                      className="text-lg font-semibold  text-neutral-900 dark:text-gray-200 mb-3 block"
                       htmlFor="brand_name"
                     >
                       Brand Name:
@@ -113,7 +113,7 @@ const AddProduct = () => {
                   </div>
                   <div>
                     <select
-                      className="w-full px-4 py-3.5 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200 uppercase"
+                      className="w-full px-4 py-3.5 bg-[#f7f7f7] dark:bg-gray-600 dark:border-gray-500 dark:placeholder:text-gray-400 dark:text-gray-200 outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200 uppercase"
                       id="brand_name"
                       name="brand_name"
                       placeholder="Enter Brand Name"
@@ -129,7 +129,7 @@ const AddProduct = () => {
                 <div className="md:w-1/2 mb-6">
                   <div>
                     <label
-                      className="text-lg font-semibold text-[#374151] opacity-80 mb-3 block"
+                      className="text-lg font-semibold  text-neutral-900 dark:text-gray-200 mb-3 block"
                       htmlFor="type"
                     >
                       Type:
@@ -137,7 +137,7 @@ const AddProduct = () => {
                   </div>
                   <div>
                     <input
-                      className="w-full px-4 py-3 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                      className="w-full px-4 py-3 bg-[#f7f7f7] dark:bg-gray-600 dark:border-gray-500 dark:placeholder:text-gray-400 dark:text-gray-200 outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
                       type="text"
                       id="type"
                       name="type"
@@ -151,7 +151,7 @@ const AddProduct = () => {
                 <div className="md:w-1/2 mb-6">
                   <div>
                     <label
-                      className="text-lg font-semibold text-[#374151] opacity-80 mb-3 block"
+                      className="text-lg font-semibold  text-neutral-900 dark:text-gray-200 mb-3 block"
                       htmlFor="price"
                     >
                       Price:
@@ -159,7 +159,7 @@ const AddProduct = () => {
                   </div>
                   <div>
                     <input
-                      className="w-full px-4 py-3 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                      className="w-full px-4 py-3 bg-[#f7f7f7] dark:bg-gray-600 dark:border-gray-500 dark:placeholder:text-gray-400 dark:text-gray-200 outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
                       type="text"
                       id="price"
                       name="price"
@@ -171,7 +171,7 @@ const AddProduct = () => {
                 <div className="md:w-1/2 mb-6">
                   <div>
                     <label
-                      className="text-lg font-semibold text-[#374151] opacity-80 mb-3 block"
+                      className="text-lg font-semibold  text-neutral-900 dark:text-gray-200 mb-3 block"
                       htmlFor="rating"
                     >
                       Rating:
@@ -179,7 +179,7 @@ const AddProduct = () => {
                   </div>
                   <div>
                     <input
-                      className="w-full px-4 py-3 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                      className="w-full px-4 py-3 bg-[#f7f7f7] dark:bg-gray-600 dark:border-gray-500 dark:placeholder:text-gray-400 dark:text-gray-200 outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
                       type="text"
                       id="rating"
                       name="rating"
@@ -192,7 +192,7 @@ const AddProduct = () => {
               <div className="mb-6">
                 <div>
                   <label
-                    className="text-lg font-semibold text-[#374151] opacity-80 mb-3 block"
+                    className="text-lg font-semibold  text-neutral-900 dark:text-gray-200 mb-3 block"
                     htmlFor="description"
                   >
                     Short description:
@@ -200,7 +200,7 @@ const AddProduct = () => {
                 </div>
                 <div>
                   <textarea
-                    className="w-full px-4 py-3 bg-[#f7f7f7] outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
+                    className="w-full px-4 py-3 bg-[#f7f7f7] dark:bg-gray-600 dark:border-gray-500 dark:placeholder:text-gray-400 dark:text-gray-200 outline-none rounded text-[#2b2b2b] placeholder:text-[#1B1A1A99] border border-gray-200"
                     id="description"
                     name="description"
                     placeholder="Short description..."

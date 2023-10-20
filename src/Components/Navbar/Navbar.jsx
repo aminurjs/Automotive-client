@@ -196,7 +196,7 @@ const Navbar = () => {
                     className="mt-3 z-[99] shadow menu menu-sm dropdown-content bg-base-100 rounded-box p-5 min-w-[220px] dark:bg-slate-800"
                   >
                     <label className="avatar text-center mx-auto">
-                      <div className="w-16 rounded-full bg-white dark:bg-gray-800">
+                      <div className="w-16 rounded-full bg-white">
                         <img
                           src={
                             user?.photoURL

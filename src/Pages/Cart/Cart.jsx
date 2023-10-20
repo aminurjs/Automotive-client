@@ -6,11 +6,11 @@ const Cart = () => {
   const loadedCarts = useLoaderData();
   const [carts, setCarts] = useState(loadedCarts);
   return (
-    <div className="bg-slate-100">
+    <div className="bg-slate-100 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto py-12 px-5">
         {carts.length > 0 ? (
-          <div className="bg-white rounded py-10 px-5 md:px-10">
-            <h2 className="text-3xl text-blue-1 font-semibold pb-4 mb-5 border-b border-gray-200">
+          <div className="bg-white dark:bg-slate-800 rounded py-10 px-5 md:px-10">
+            <h2 className="text-3xl text-blue-1 dark:text-gray-200 font-semibold pb-4 mb-5 border-b border-gray-200">
               My Cart
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
