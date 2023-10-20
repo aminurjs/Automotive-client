@@ -11,7 +11,7 @@ const Brand = ({ brand }) => {
   return (
     <div
       onClick={handleBrand}
-      className="card bg-base-100 dark:bg-gray-800 shadow border border-gray-200 dark:border-gray-600 flex flex-col cursor-pointer"
+      className="card bg-base-100 dark:bg-gray-900 shadow border border-gray-200 dark:border-gray-600 flex flex-col cursor-pointer"
     >
       <figure className="px-5 pt-5 flex-grow">
         <img src={brand?.image} alt="Brand" className="rounded-lg" />

@@ -7,7 +7,7 @@ const UpdateProduct = () => {
   const product = useLoaderData();
 
   useEffect(() => {
-    fetch("http://localhost:5000/brands")
+    fetch("https://automotive-server-gules.vercel.app/brands")
       .then((res) => res.json())
       .then((data) => {
         setBrands(data);
@@ -41,7 +41,7 @@ const UpdateProduct = () => {
       description,
     };
     console.log(updatedProduct);
-    fetch(`http://localhost:5000/update/${_id}`, {
+    fetch(`https://automotive-server-gules.vercel.app/update/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

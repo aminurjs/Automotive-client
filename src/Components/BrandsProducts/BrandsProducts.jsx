@@ -13,14 +13,14 @@ const BrandsProducts = () => {
   const { name } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${name}`)
+    fetch(`https://automotive-server-gules.vercel.app/products/${name}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
       });
   }, []);
   useEffect(() => {
-    fetch(`http://localhost:5000/brands/${name}`)
+    fetch(`https://automotive-server-gules.vercel.app/brands/${name}`)
       .then((res) => res.json())
       .then((data) => {
         setBrand(data);
@@ -61,7 +61,7 @@ const BrandsProducts = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <h2 className="text-3xl text-blue-1 font-semibold mb-10 text-center">
+      <h2 className="text-2xl md:text-3xl text-blue-1 font-semibold mb-10 text-center">
         Explore Your Dream Cars
       </h2>
       <div className=" grid grid-cols-1 md:grid-cols-2 gap-6">

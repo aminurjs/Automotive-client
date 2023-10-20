@@ -31,7 +31,7 @@ const Navbar = () => {
   const { cartRender, user, logOut } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/carts")
+    fetch("https://automotive-server-gules.vercel.app/carts")
       .then((res) => res.json())
       .then((data) => setCarts(data.length));
   }, [cartRender]);
@@ -52,7 +52,7 @@ const Navbar = () => {
     { id: "2", name: "Add Product", path: "/addproduct" },
   ];
   return (
-    <div className="bg-white dark:bg-gray-800">
+    <div className="bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto py-2 px-5 lg:px-0 border-b border-gray-200 dark:border-gray-800">
         <div className="navbar">
           <Toaster
@@ -159,7 +159,7 @@ const Navbar = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="menu dark:bg-gray-800 menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 right-0 border border-gray-200 dark:border-gray-800 py-5"
+                className="menu dark:bg-gray-800 menu-sm dropdown-content mt-3 z-[99] p-2 shadow bg-base-100 rounded-box w-52 right-0 border border-gray-200 dark:border-gray-800 py-5"
               >
                 {menus.map((menu) => (
                   <li
@@ -193,7 +193,7 @@ const Navbar = () => {
                   </label>
                   <div
                     tabIndex={1}
-                    className="mt-3 z-[1] shadow menu menu-sm dropdown-content bg-base-100 rounded-box p-5 min-w-[220px] dark:bg-slate-800"
+                    className="mt-3 z-[99] shadow menu menu-sm dropdown-content bg-base-100 rounded-box p-5 min-w-[220px] dark:bg-slate-800"
                   >
                     <label className="avatar text-center mx-auto">
                       <div className="w-16 rounded-full bg-white dark:bg-gray-800">

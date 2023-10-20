@@ -49,7 +49,9 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
+          fetch(
+            `https://automotive-server-gules.vercel.app/product/${params.id}`
+          ),
       },
       {
         path: "/details/:id",
@@ -59,7 +61,9 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
+          fetch(
+            `https://automotive-server-gules.vercel.app/product/${params.id}`
+          ),
       },
       {
         path: "/cart",
@@ -68,7 +72,7 @@ const router = createBrowserRouter([
             <Cart />
           </PrivateRoutes>
         ),
-        loader: () => fetch("http://localhost:5000/carts"),
+        loader: () => fetch("https://automotive-server-gules.vercel.app/carts"),
       },
     ],
   },

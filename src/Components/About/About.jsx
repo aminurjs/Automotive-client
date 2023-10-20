@@ -12,7 +12,7 @@ const About = () => {
         expert advice, and enjoy special deals. Your dream car awaits. Drive in
         today!
       </p>
-      <div className="lg:flex gap-10">
+      <div className="flex gap-10 flex-col-reverse lg:flex-row">
         <div className="lg:w-1/2">
           <h2 className="text-xl text-blue-1 dark:text-slate-200  font-semibold mb-5 border-l-4 border-yellow-1 pl-3">
             We offer high quality vehicles at unbelievable prices & creates

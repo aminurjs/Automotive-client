@@ -5,7 +5,7 @@ const Brands = () => {
   const [brands, setBrands] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/brands")
+    fetch("https://automotive-server-gules.vercel.app/brands")
       .then((res) => res.json())
       .then((data) => setBrands(data));
   }, []);
@@ -20,7 +20,7 @@ const Brands = () => {
         and performance converge. From sporty to classic, find a vehicle that
         truly mirrors your aspirations. Your dream car awaits.
       </p>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {brands?.map((brand) => (
           <Brand key={brand._id} brand={brand}></Brand>
         ))}

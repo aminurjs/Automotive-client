@@ -9,7 +9,7 @@ const CardElement = ({ cart, carts, setCarts }) => {
   const { _id, id, image, name, price, type, brand_name } = cart;
 
   const handleCartRemove = () => {
-    fetch(`http://localhost:5000/carts/remove/${_id}`, {
+    fetch(`https://automotive-server-gules.vercel.app/carts/remove/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -27,7 +27,7 @@ const CardElement = ({ cart, carts, setCarts }) => {
   };
 
   return (
-    <div className="flex items-start gap-6 mb-5 pb-10 border-b border-gray-200">
+    <div className="flex items-center gap-6 mb-5 pb-10 border-b border-gray-200">
       <img className="w-1/3 lg:w-1/2 rounded" src={image} alt="" />
       <div className="w-2/3 lg:w-1/2">
         <h3 className="font-semibold text-blue-1 text-xl mb-2">{name}</h3>

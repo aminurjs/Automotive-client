@@ -5,7 +5,7 @@ import Review from "../../Components/Review/Review";
 
 const Home = () => {
   return (
-    <div className="bg-white dark:bg-gray-800">
+    <div className="bg-white dark:bg-gray-900">
       <Banner />
       <Brands />
       <About />
