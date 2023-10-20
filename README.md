@@ -1,6 +1,6 @@
 # Automotive
 
-A simple React single page application
+A simple React single-page web application
 
 ### Live link > https://automotivereact.web.app/
 
