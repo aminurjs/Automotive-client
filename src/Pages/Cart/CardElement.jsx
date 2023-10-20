@@ -33,12 +33,14 @@ const CardElement = ({ cart, carts, setCarts }) => {
         <h3 className="font-semibold text-blue-1 dark:text-gray-200 text-xl mb-2">
           {name}
         </h3>
-        <h3 className="font-semibold text-2xl mb-2">{price}</h3>
-        <h3 className="font-medium text-green-600 text-lg mb-1">In Stock</h3>
-        <h3 className="font-medium">
+        <h3 className="font-semibold text-2xl mb-2 dark:text-gray-300">
+          {price}
+        </h3>
+        <h3 className="font-medium text-green-600 text-lg mb-1 ">In Stock</h3>
+        <h3 className="font-medium dark:text-gray-300">
           <span className="mr-3">Type: {type}</span>
         </h3>
-        <h3 className="font-medium mb-2">
+        <h3 className="font-medium mb-2 dark:text-gray-300">
           Brand: <span className="uppercase">{brand_name}</span>
         </h3>
         <div>

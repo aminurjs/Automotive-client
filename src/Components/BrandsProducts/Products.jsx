@@ -6,11 +6,15 @@ const Products = ({ product }) => {
   const { _id, image, name, brand_name, type, price, rating, description } =
     product;
   return (
-    <div className="shadow border border-gray-200 p-5 rounded-md flex flex-col">
+    <div className="shadow border border-gray-200 dark:border-gray-600 dark:bg-gray-800 p-5 rounded-md flex flex-col">
       <img className="rounded mb-5 flex-grow" src={image} alt="" />
-      <h3 className="font-medium text-lg capitalize mb-1">{brand_name}</h3>
-      <h2 className="text-2xl text-blue-1 font-semibold mb-1">{name}</h2>
-      <h3 className="font-medium capitalize mb-2">{type}</h3>
+      <h3 className="font-medium text-lg dark:text-gray-300 capitalize mb-1">
+        {brand_name}
+      </h3>
+      <h2 className="text-2xl text-blue-1 dark:text-gray-200 font-semibold mb-1">
+        {name}
+      </h2>
+      <h3 className="font-medium capitalize dark:text-gray-300 mb-2">{type}</h3>
 
       <div className="flex justify-between mb-2">
         <p className="text-lg font-semibold text-green-600">{price}</p>
@@ -52,7 +56,7 @@ const Products = ({ product }) => {
         </div>
       </div>
 
-      <h3 className="font-medium capitalize mb-4">
+      <h3 className="font-medium capitalize mb-4 dark:text-gray-300">
         {description?.length > 120 ? description.slice(0, 120) : description}...
       </h3>
 
