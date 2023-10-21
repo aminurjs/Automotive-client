@@ -31,7 +31,7 @@ const Navbar = () => {
   const { cartRender, user, logOut } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("https://automotive-server-gules.vercel.app/carts")
+    fetch("https://automotive-server-aminurjs.vercel.app/carts")
       .then((res) => res.json())
       .then((data) => setCarts(data.length));
   }, [cartRender]);
@@ -52,7 +52,7 @@ const Navbar = () => {
     { id: "2", name: "Add Product", path: "/addproduct" },
   ];
   return (
-    <div className="bg-white dark:bg-gray-900">
+    <div className="bg-white dark:bg-gray-950">
       <div className="max-w-7xl mx-auto py-2 px-5 lg:px-0 border-b border-gray-200 dark:border-gray-800">
         <div className="navbar">
           <Toaster
@@ -100,7 +100,7 @@ const Navbar = () => {
                   >
                     <BsCart3></BsCart3>
                     <span className="badge bg-yellow-1 text-blue-1 badge-sm indicator-item">
-                      {carts}
+                      {user ? carts : 0}
                     </span>
                   </Link>
                 </li>

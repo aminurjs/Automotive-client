@@ -7,7 +7,11 @@ const UpdateProduct = () => {
   const product = useLoaderData();
 
   useEffect(() => {
-    fetch("https://automotive-server-gules.vercel.app/brands")
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    fetch("https://automotive-server-aminurjs.vercel.app/brands")
       .then((res) => res.json())
       .then((data) => {
         setBrands(data);
@@ -41,7 +45,7 @@ const UpdateProduct = () => {
       description,
     };
     console.log(updatedProduct);
-    fetch(`https://automotive-server-gules.vercel.app/update/${_id}`, {
+    fetch(`https://automotive-server-aminurjs.vercel.app/update/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

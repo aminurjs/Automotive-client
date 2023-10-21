@@ -108,7 +108,7 @@ const Login = () => {
               <div className="text-center mt-8 w-4/5 lg:w-3/5 mx-auto">
                 <button
                   onClick={handleGoogleLogin}
-                  className="block w-full p-2 border-2 border-blue-1 dark:border-gray-300 font-medium rounded-lg mb-5"
+                  className="block w-full p-2 border-2 border-blue-1 dark:border-gray-300 dark:text-gray-200 font-medium rounded-lg mb-5"
                 >
                   <FcGoogle className="inline text-2xl mr-2"></FcGoogle>
                   Continue with Google

@@ -10,21 +10,30 @@ import { IoMdPricetags } from "react-icons/io";
 import { BsFillInfoCircleFill, BsInstagram, BsTwitter } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
 import swal from "sweetalert";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
 import Rating from "react-rating";
 
 const ProductDetails = () => {
-  const { cartRender, setCartRender } = useContext(AuthContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const { cartRender, setCartRender, user } = useContext(AuthContext);
   const product = useLoaderData();
-  console.log(product);
   const { _id, image, name, type, price, brand_name, rating, description } =
     product;
-
   const handleAddCart = () => {
-    const cart = { id: _id, image, name, price, type, brand_name };
+    const cart = {
+      id: _id,
+      image,
+      name,
+      price,
+      type,
+      brand_name,
+      email: user.email,
+    };
     console.log(cart);
-    fetch("https://automotive-server-gules.vercel.app/addcart", {
+    fetch("https://automotive-server-aminurjs.vercel.app/addcart", {
       method: "POST",
       headers: {
         "content-type": "application/json",

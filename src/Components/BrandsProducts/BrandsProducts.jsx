@@ -13,14 +13,17 @@ const BrandsProducts = () => {
   const { name } = useParams();
 
   useEffect(() => {
-    fetch(`https://automotive-server-gules.vercel.app/products/${name}`)
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
+    fetch(`https://automotive-server-aminurjs.vercel.app/products/${name}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
       });
   }, []);
   useEffect(() => {
-    fetch(`https://automotive-server-gules.vercel.app/brands/${name}`)
+    fetch(`https://automotive-server-aminurjs.vercel.app/brands/${name}`)
       .then((res) => res.json())
       .then((data) => {
         setBrand(data);

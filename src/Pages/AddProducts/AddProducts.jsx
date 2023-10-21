@@ -5,7 +5,7 @@ const AddProduct = () => {
   const [brands, setBrands] = useState([]);
 
   useEffect(() => {
-    fetch("https://automotive-server-gules.vercel.app/brands")
+    fetch("https://automotive-server-aminurjs.vercel.app/brands")
       .then((res) => res.json())
       .then((data) => {
         setBrands(data);
@@ -32,7 +32,7 @@ const AddProduct = () => {
       description,
     };
     console.log(product);
-    fetch("https://automotive-server-gules.vercel.app/addproduct", {
+    fetch("https://automotive-server-aminurjs.vercel.app/addproduct", {
       method: "POST",
       headers: {
         "content-type": "application/json",
