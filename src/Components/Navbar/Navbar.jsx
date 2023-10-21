@@ -1,5 +1,4 @@
 import { Link, NavLink } from "react-router-dom";
-import { BsCart3 } from "react-icons/bs";
 import "./Navbar.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
@@ -27,14 +26,7 @@ const Navbar = () => {
   const handleThemeSwich = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
-  const [carts, setCarts] = useState(0);
-  const { cartRender, user, logOut } = useContext(AuthContext);
-
-  useEffect(() => {
-    fetch("https://automotive-server-aminurjs.vercel.app/carts")
-      .then((res) => res.json())
-      .then((data) => setCarts(data.length));
-  }, [cartRender]);
+  const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
@@ -50,6 +42,7 @@ const Navbar = () => {
   const menus = [
     { id: "1", name: "Home", path: "/" },
     { id: "2", name: "Add Product", path: "/addproduct" },
+    { id: "3", name: "My Carts", path: "/cart" },
   ];
   return (
     <div className="bg-white dark:bg-gray-950">
@@ -93,17 +86,6 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                 ))}
-                <li>
-                  <Link
-                    to="/cart"
-                    className="text-2xl indicator text-neutral-900 dark:text-gray-200"
-                  >
-                    <BsCart3></BsCart3>
-                    <span className="badge bg-yellow-1 text-blue-1 badge-sm indicator-item">
-                      {user ? carts : 0}
-                    </span>
-                  </Link>
-                </li>
               </ul>
             </div>
             <div>
@@ -169,9 +151,6 @@ const Navbar = () => {
                     <NavLink to={menu.path}>{menu.name}</NavLink>
                   </li>
                 ))}
-                <li className="text-lg mb-1  text-neutral-900 dark:text-gray-200 dark:hover:text-gray-200">
-                  <NavLink to="/cart">My Cart</NavLink>
-                </li>
               </ul>
             </div>
             <div>

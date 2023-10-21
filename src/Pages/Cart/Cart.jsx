@@ -1,10 +1,18 @@
 import { useLoaderData } from "react-router-dom";
 import CardElement from "./CardElement";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
 
 const Cart = () => {
+  const { user } = useContext(AuthContext);
   const loadedCarts = useLoaderData();
-  const [carts, setCarts] = useState(loadedCarts);
+  const [carts, setCarts] = useState([]);
+
+  useEffect(() => {
+    const userCarts = loadedCarts.filter((cart) => cart.email == user.email);
+    setCarts(userCarts);
+  }, [loadedCarts, user.email]);
+
   return (
     <div className="bg-slate-100 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto py-12 px-5">
